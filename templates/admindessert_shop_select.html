@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+ <style type="text/css">
+    body{background:#FFA07A;padding:0 5em;margin:0}
+    h3{color:#CC6699;font-size: 30px;height:30px;line-height:30px;text-align: center;margin: 0 auto;
+        font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;margin-top: 1cm}
+    h4{color:#000033;font-size: 20px;height:30px;line-height:30px;text-align: center;margin: 0 auto;
+        font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;margin-top: 1cm}
+    h5{color:#660033;font-size: 20px;height:30px;line-height:30px;text-align: center;margin: 0 auto;
+        font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;margin-top: 2cm}
+    table, td, th {  border:1px solid green; text-align: center;margin: 0 auto}
+    th {  background-color:green;  color:white;  }
+  </style>
+<body>
+<h3>Dessert_shops'comments_list</h3>
+<br><br><br>
+<table border="8">
+   <tr>
+       <th> Commentid </th>
+       <th> User_name </th>
+       <th> Dessert_name</th>
+       <th> Dessert_shop_name </th>
+       <th> Comment_content </th>
+       <th> Comment_date </th>
+       <th> 是否删除？</th>
+   </tr>
+    {% for comment in rcomment %}
+         <tr>
+          <td>{{ comment.commentid }}</td>
+          <td>{{ comment.user_name }}</td>
+          <td>{{comment.dessert_name}}</td>
+          <td><a href="http://127.0.0.1:8000/myapp/shop/?shopname={{ comment.dessert_shop_name }}"> {{ comment.dessert_shop_name }}</a></td>
+          <td>{{ comment.content }}</td>
+          <td>{{ comment.comment_date }}</td>
+          <td><a href = "http://127.0.0.1:8000/myapp/delete?rcommentid={{comment.commentid}}"> 删除 </a></td>
+         </tr>
+    {% endfor %}
+</table>
+<h5>
+<a href="http://127.0.0.1:8000/myapp/logout/">退出</a>&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/myapp/enter/">查看所有评论</a>&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/myapp/adminsearch_choice/">搜索</a>&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/myapp/addshop/">添加店铺</a>&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/myapp/showshop/">查看店铺</a>
+    </h5>
+</body>
+</html>
